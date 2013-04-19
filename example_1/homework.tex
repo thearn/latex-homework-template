@@ -1,0 +1,162 @@
+\documentclass[landscape,letterpaper]{article}
+% Document preamble. Include all needed packages here.
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+\usepackage{subfigure}
+\usepackage{rotating}
+\usepackage{amsthm}
+\usepackage[mathscr]{euscript}
+
+%\usepackage{newproof}
+\usepackage{multicol}
+\usepackage[compact]{titlesec}
+\usepackage{hyperref}
+%print using 'none' scaling
+%eliminate whitespace for 8.5x11in letter paper in landscape mode
+\setlength{\oddsidemargin}{-0.75in}		% default=0in
+\setlength{\evensidemargin}{-0.75in}
+%\setlength{\oddsidemargin}{-1.in}		% default=0in
+%\setlength{\evensidemargin}{-1.in}	
+	
+\setlength{\textwidth}{10.175in}		% default=9in
+%\setlength{\textwidth}{10.95in}		% default=9in
+
+\setlength{\columnsep}{0.25in}		% default=10pt
+\setlength{\columnseprule}{0.5pt}		% default=0pt (no line)
+
+\setlength{\textheight}{7.25in}		% default=5.15in
+\setlength{\topmargin}{-0.7in}		% default=0.20in
+%\setlength{\textheight}{7.8in}		% default=5.15in
+%\setlength{\topmargin}{-1in}		% default=0.20in
+\setlength{\headsep}{0.1in}		% default=0.35in
+
+\setlength{\parskip}{1.0ex}
+\setlength{\parindent}{0mm}
+
+
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+% Homework Specific Information
+\newcommand{\hmwkTitle}{Homework Set 5}
+\newcommand{\hmwkDueDate}{26 Feb. 2010}
+\newcommand{\hmwkClass}{Math 72042}
+\newcommand{\hmwkClassTime}{MW 5:30-6:45, 211 MSB}
+\newcommand{\hmwkAuthorName}{Tristan A. Hearn}
+
+% Setup the header and footer
+\pagestyle{fancy}                                                       
+\lhead{\textbf{\hmwkAuthorName}}                                                 
+\chead{\textbf{\hmwkClass\ (\hmwkClassTime): \hmwkTitle}}  %
+\rhead{\textbf{\firstxmark}}                                                     
+\lfoot{\textbf{\lastxmark}}                                                      
+\cfoot{\textbf{Kent State University, MSB 209. thearn@math.kent.edu}}                                                                
+\rfoot{\textbf{Page\ \thepage\ of\ \pageref{LastPage}}}                          
+\renewcommand\headrulewidth{0.4pt}                                      
+\renewcommand\footrulewidth{0.4pt}   
+
+% Change 'Figure' to 'Fig.'                                   
+\renewcommand{\figurename}{Fig.}
+% Different font in captions
+\newcommand{\captionfonts}{\footnotesize}
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\captionfonts #1: #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\captionfonts #1: #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+
+\newcommand{\enterProblemHeader}[1]{\nobreak\extramarks{#1}{#1 
+continued on next page\ldots}\nobreak%
+                                    \nobreak\extramarks{#1 
+(continued)}{#1 continued on next page\ldots}\nobreak}%
+\newcommand{\exitProblemHeader}[1]{\nobreak\extramarks{#1 
+(continued)}{#1 continued on next page\ldots}\nobreak%
+                                   \nobreak\extramarks{#1}{}\nobreak}%
+
+\newlength{\labelLength}
+\newcommand{\labelAnswer}[2]
+  {\settowidth{\labelLength}{#1}%
+   \addtolength{\labelLength}{0.25in}%
+   \changetext{}{-\labelLength}{}{}{}%
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#2\end{minipage}}%
+   \marginpar{\fbox{#1}}%
+   \changetext{}{+\labelLength}{}{}{}}%
+\setcounter{secnumdepth}{0}
+\newcommand{\homeworkProblemName}{}%
+\newcounter{homeworkProblemCounter}%
+\setcounter{homeworkProblemCounter}{0}
+\newenvironment{homeworkProblem}[1][Problem 
+\arabic{homeworkProblemCounter}]%
+  {\stepcounter{homeworkProblemCounter}%
+   \renewcommand{\homeworkProblemName}{#1}%
+   \section{\homeworkProblemName}%
+   \enterProblemHeader{\homeworkProblemName}}%
+  {\exitProblemHeader{\homeworkProblemName}}%
+
+\newcommand{\problemAnswer}[1]
+  {\noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}}%
+
+\newcommand{\problemLAnswer}[1]
+  {\labelAnswer{\homeworkProblemName}{#1}}
+
+\newcommand{\homeworkSectionName}{}%
+\newlength{\homeworkSectionLabelLength}{}%
+
+
+% Builds the title page
+\title{\LARGE\vspace{1in}\textmd{\textbf{\underline{\hmwkClass:\ 
+\hmwkTitle}}}\\\normalsize\vspace{0.5in}\large{Due\ by\ 
+\hmwkDueDate}\\\vspace{0.5in}\large{\textit{\ 
+\hmwkClassTime}}\vspace{1in}}
+\large\date{}
+\author{\LARGE\textbf{\hmwkAuthorName}}
+
+
+
+% Figures within a column...
+\makeatletter
+\newenvironment{tablehere}
+{\def\@captype{table}}
+{}
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
+\makeatother
+
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\small
+\begin{spacing}{0.9}
+\begin{multicols}{2}
+
+\input{problems}
+
+\end{multicols} 
+\end{spacing}
+
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
