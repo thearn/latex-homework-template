@@ -22,4 +22,4 @@ Usage:
 \end{homeworkProblem}
 ``` 
 
-- `example_1` and `example_2` show examples of the template used on two complete homework sets, including the use of figures.
+- [Example 1](example_1.md) and [Example 2](example_2.md) show examples of the template used on two complete homework sets, including the use of figures.
